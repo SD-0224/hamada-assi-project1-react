@@ -1,0 +1,44 @@
+.btnNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  padding: 5px 5px;
+  border: 1px solid var(--lines-color);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  background: transparent;
+  width: 110px;
+}
+
+.btnNav * {
+  color: var(--body-text);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.icon {
+  padding-right: 5px;
+}
+
+.btnNav ion-icon{
+  padding-right: 5px;
+}
+
+@media (max-width: 700px) {
+  .btnNav {
+    width: fit-content;
+  }
+
+  .icon {
+    padding: 0px 5px;
+  }
+
+  .btnNav span {
+    display: none;
+  }
+}

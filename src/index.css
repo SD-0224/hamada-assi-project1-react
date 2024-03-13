@@ -1,13 +1,115 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+:root {
+  --brand-primary: #0768ac;
+  --brand-secondary: #03c180;
+  --heart-color: #dc143c;
+
+  --bg_default_light: #ffffff;
+  --bg_body_light: #f0f9ff;
+  --lines-color_light: #dddddd;
+  --body-text_light: #333333;
+
+  --bg_default_dark: #1a1a1a;
+  --bg_body_dark: #282828;
+  --lines-color_dark: #000000;
+  --body-text_dark: #ededed;
+
+  --font-family: "Nunito Sans", sans-serif;
+}
+
+:root {
+  font-size: 16px;
+}
+
+/* color for light mode */
+body.light-mode {
+  --bg_default: var(--bg_default_light);
+  --bg_body: var(--bg_body_light);
+  --lines-color: var(--lines-color_light);
+  --body-text: var(--body-text_light);
+}
+/* color for dark mode */
+body.dark-mode {
+  --bg_default: var(--bg_default_dark);
+  --bg_body: var(--bg_body_dark);
+  --lines-color: var(--lines-color_dark);
+  --body-text: var(--body-text_dark);
+}
+
+* {
+  font-family: var(--font-family);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--body-text);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--body-text);
+}
+
+option {
+  color: var(--body-text);
+  background: var(--bg_default);
+}
+
+.img-in-box {
+  width: 100%;
+  max-width: 100%;
+  height: 48%;
+  object-fit: cover;
+  background-color: #fff;
+  border-radius: 6px 6px 0 0;
+  -webkit-border-radius: 6px 6px 0 0;
+  -moz-border-radius: 6px 6px 0 0;
+  -ms-border-radius: 6px 6px 0 0;
+  -o-border-radius: 6px 6px 0 0;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.rating ion-icon {
+  color: #f78b00;
+  font-size: 1rem;
+}
+
+body {
+  color: var(--body-text);
+  background: var(--bg_body);
+  font-size: 16px; /* Default font size */
+}
+
+@media (max-width: 700px) {
+  :root {
+    font-size: 14px; 
+  }
+  body {
+    font-size: 0.875rem;
+  }
 }

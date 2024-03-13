@@ -1,0 +1,79 @@
+.welcomeSection {
+  position: relative;
+  height: 115px;
+  background: var(--bg_default);
+}
+
+.welcomeSection::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  clip-path: polygon(0% 0%, 0% 59%, 90% 0%);
+  background: linear-gradient(
+    to right,
+    var(--brand-primary),
+    var(--brand-secondary)
+  );
+  width: 100%;
+  height: 100%;
+}
+
+.welcomeSection::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  clip-path: polygon(15% 0%, 100% 0%, 100% 60%);
+  background: var(--brand-secondary);
+  width: 100%;
+  height: 100%;
+}
+
+.text {
+  width: fit-content;
+  position: absolute;
+  top: 63%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+.welcomeSection .text h1 {
+  color: var(--brand-secondary);
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+
+@media (max-width: 880px) {
+  .welcomeSection::after {
+    clip-path: polygon(0% 0%, 0% 30%, 120% 0%);
+  }
+  .welcomeSection::before {
+    clip-path: polygon(-10% 0%, 100% 0%, 100% 30%);
+  }
+}
+
+@media (max-width: 700px) {
+  .welcomeSection::after {
+    clip-path: polygon(0% 0%, 0% 22%, 120% 0%);
+  }
+  .welcomeSection::before {
+    clip-path: polygon(-10% 0%, 100% 0%, 100% 22%);
+  }
+
+  .welcomeSection .text {
+    margin-left: 20px;
+    margin-right: 20px;
+    position: relative;
+    left: 0;
+    transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+  }
+}

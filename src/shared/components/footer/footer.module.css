@@ -1,0 +1,13 @@
+footer p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--body-text);
+  padding-bottom: 40px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+footer .heart {
+  color: var(--heart-color);
+}
