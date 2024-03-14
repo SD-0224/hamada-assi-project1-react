@@ -28,7 +28,7 @@ export function Topics() {
     <div id="courses" className={styles.courses}>
       {topics.map((topic) => (
         <Link to="/DetailsPage" key={topic.id} className={styles.course} id={topic.id}>
-          <img src={`/public/logo512.png/${topic.image}`}
+          <img src={`./Logos/${topic.image}`}
             alt="course logo"
             className={"img-in-box"}
           />
