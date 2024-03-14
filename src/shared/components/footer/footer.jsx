@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer>
       <p>
-        Develop with&nbsp;<ion-icon name="heart" className="heart"></ion-icon>
+        Develop with&nbsp;<ion-icon name="heart" class={styles.heart}></ion-icon>
         &nbsp;&#169; 2023
       </p>
     </footer>

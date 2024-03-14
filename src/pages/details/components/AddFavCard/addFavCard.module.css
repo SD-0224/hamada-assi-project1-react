@@ -1,0 +1,55 @@
+.courseInfo {
+    flex-grow: 1;
+    padding: 15px;
+  }
+  
+.courseInfo h3 {
+    min-height: 30px;
+  }
+  
+.authorInfo {
+    font-size: 0.9rem;
+  }
+  
+.courseInfo h3 span a {
+    text-decoration: underline;
+    color: var(--brand-primary);
+  }
+  
+.addFavourites {
+    padding: 25px 20px 15px;
+    border: 1px solid var(--lines-color_light);
+  }
+  
+.btnContainer {
+    text-align: center;
+  }
+  
+.addFavourites p,
+.btn-container p {
+    font-size: 0.75rem;
+  }
+  
+.btnContainer button {
+    padding: 15px 5px;
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+    color: var(--body-text_dark);
+    background: var(--brand-secondary);
+    border: none;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+  }
+  
+.btnContainer button ion-icon {
+    font-size: 1.6rem;
+  }
+  
+.addMyFavorites {
+    color: var(--body-text_dark);
+    font-size: 1.25rem;
+  }

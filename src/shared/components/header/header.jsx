@@ -3,6 +3,7 @@ import { LayoutContainer } from "../container/container.jsx";
 import styles from "./header.module.css";
 import "./header.module.css"
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
 export function Header() {
@@ -38,9 +39,9 @@ export function Header() {
     <header>
       <LayoutContainer className={styles.header}>
         <h1>
-          <a href="index.html" className={styles.logo}>
+          <Link to="/" className={styles.logo}>
             Web Topics
-          </a>
+          </Link>
         </h1>
         <nav>
           <ul>

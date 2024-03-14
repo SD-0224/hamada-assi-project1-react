@@ -88,17 +88,6 @@ option {
   -o-border-radius: 6px 6px 0 0;
 }
 
-.rating {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.rating ion-icon {
-  color: #f78b00;
-  font-size: 1rem;
-}
-
 body {
   color: var(--body-text);
   background: var(--bg_body);

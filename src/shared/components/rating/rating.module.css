@@ -1,0 +1,10 @@
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.rating ion-icon {
+  color: #f78b00;
+  font-size: 1rem;
+}
