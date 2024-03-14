@@ -17,6 +17,10 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
+    path: "https://SD-0224.github.io/hamada-assi-project1-react",
+    element: <App />,
+  },
+  {
     path: "DetailsPage",
     element: <DetailsPage />,
   },
