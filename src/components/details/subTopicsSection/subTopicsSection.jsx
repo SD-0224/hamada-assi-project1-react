@@ -1,5 +1,6 @@
 import React from "react";
 import "./subTopicsSection.module.css";
+import IconicList from "../iconic-list/iconicList";
 
 export default function Subtopics({ topic, subtopics }) {
   if (!subtopics || subtopics.length === 0) {
@@ -10,10 +11,11 @@ export default function Subtopics({ topic, subtopics }) {
       <h3>{topic} Sub Topics</h3>
       <ul>
         {subtopics.map((elm, index) => (
-          <li key={index}>
-            <ion-icon name="checkmark-circle-outline"></ion-icon>
-            <span>{elm}</span>
-          </li>
+          <IconicList
+            index={index}
+            iconName={"checkmark-circle-outline"}
+            subtopic={elm}
+          />
         ))}
       </ul>
     </>

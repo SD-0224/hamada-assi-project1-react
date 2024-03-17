@@ -1,12 +1,12 @@
 import React from "react"
-import DataContainer from "../components/details/detailsDataContainer/detailsDataContainer";
 import { useParams } from "react-router-dom";
+import DetailsDataContainer from "../components/details/detailsDataContainer/detailsDataContainer";
 
 export default function DetailsPage() {
   let { id } = useParams();
   return (
     <main>
-      <DataContainer id={id} />
+      <DetailsDataContainer id={id} />
     </main>
   );
 }

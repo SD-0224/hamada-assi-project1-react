@@ -1,37 +1,52 @@
+import DropDown from "../dropDownMenu/dropDown";
+import IconicSearch from "../iconic-search/iconicSearch";
 import styles from "./searchSortFilter.module.css";
 
-const Search = () => {
+const SearchSortFilter = ({ topics }) => {
+  // get categories to setup the filter drop down
+  const allCategory = new Set();
+  topics.forEach(elm => {
+        if (!allCategory.has(elm.category)) {
+            allCategory.add(elm.category);
+        }
+    });
+    
   return (
     <div className={styles.searchContainer}>
       <div className={styles.searchField}>
-        <ion-icon name="search-outline" class={styles.icon}></ion-icon>
+        <IconicSearch name={"search-outline"} classIcon={'icon'} id={'searchInput'} type={'text'} placeholder={"Search the website..."} />
+        {/* <ion-icon name="search-outline" class={styles.icon}></ion-icon>
         <input
           id="searchInput"
           type="text"
           placeholder="Search the website..."
-        />
+        /> */}
         <div className={styles.drop}>
-          <div className={`${styles.dropDown} ${styles.sortDropDown}`}>
-            <label htmlFor="sort">Sort by:</label>
-            <select id="sort" name="sort" className={styles.sortSelect}>
-              <option value="DEFAULT">Default</option>
-              <option value="TOPIC">Topic</option>
-              <option value="AUTHOR">Author</option>
-            </select>
-          </div>
-          <div className={`${styles.dropDown} ${styles.filterDropDown}`}>
-            <label htmlFor="filter">Filter by:</label>
-            <select id="filter" name="filter" className={styles.filterSelect}>
-              <option value="ALL">ALL</option>
-            </select>
-          </div>
+          <DropDown
+            mainClass={"sortDropDown"}
+            label={"Sort by:"}
+            htmlFor={"sort"}
+            id={"sort"}
+            name={"sort"}
+            selectClass={"sortSelect"}
+            options={["DEFAULT", "TOPIC", "AUTHOR"]}
+          />
+          <DropDown
+            mainClass={"filterDropDown"}
+            label={"Filter by:"}
+            htmlFor={"filter"}
+            id={"filter"}
+            name={"filter"}
+            selectClass={"filterSelect"}
+            options={["ALL", ...allCategory]}
+          />
         </div>
       </div>
-      <h2 id={styles.searchMessage}>
+      <h2 className={styles.searchMessage}>
         "<span id="numberTopics">24</span>" Web Topics Found
       </h2>
     </div>
   );
 };
 
-export default Search;
+export default SearchSortFilter;

@@ -5,7 +5,7 @@ import AddFavCard from "../AddFavCard/AddFavCard";
 import Subtopics from "../subTopicsSection/subTopicsSection";
 import {useParams} from "react-router-dom";
 
-export default function DataContainer({ id }) {
+export default function DetailsDataContainer({ id }) {
   const [topic, setTopic] = useState([]);
 
   const params = useParams();
@@ -28,7 +28,7 @@ export default function DataContainer({ id }) {
           error
         );
       });
-  }, []);
+  }, [params.id]);
 
   return (
     <section className={styles.dataContainer}>

@@ -5,7 +5,7 @@ import styles from "./addFavCard.module.css";
 export default function AddFavCard({ image, topic, name }) {
   return (
     <div className={styles.rightColCard}>
-      <img src="" alt={image} className="img-in-box" />
+      <img src={`./Logos/${image}`} alt={image} className="img-in-box" />
       <div className={styles.courseInfo}>
         <h3>
           <span className={styles.topic}>{topic}</span>

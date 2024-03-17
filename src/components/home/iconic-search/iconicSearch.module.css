@@ -1,0 +1,18 @@
+.icon {
+  font-size: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(15px, -50%);
+  -webkit-transform: translate(15px, -50%);
+  -moz-transform: translate(15px, -50%);
+  -ms-transform: translate(15px, -50%);
+  -o-transform: translate(15px, -50%);
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .icon {
+    top: 25%;
+  }
+}

@@ -2,25 +2,3 @@
   padding: 15px 20px;
   font-size: 1.7rem;
 }
-
-.subTopics ul li {
-  padding: 15px 20px;
-  border-top: 1px solid var(--lines-color);
-  display: flex;
-  align-items: center;
-}
-.subTopics ul li * {
-  font-size: 1.3rem;
-}
-
-.subTopics ul li ion-icon {
-  font-size: 1.5rem;
-}
-
-.subTopics ul li ion-icon {
-  color: var(--brand-secondary);
-  padding-right: 20px;
-  flex-shrink: 0;
-}
-
-
