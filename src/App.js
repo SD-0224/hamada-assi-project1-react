@@ -16,7 +16,7 @@ function App() {
   };
   
   return (
-    <Router>
+    <Router basename="/hamada-assi-project1-react">
       <ScrollToTop />
       <Header toggleFavorites={toggleFavorites} />
       <Welcome />
