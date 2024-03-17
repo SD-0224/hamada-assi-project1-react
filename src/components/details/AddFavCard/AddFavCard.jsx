@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./addFavCard.module.css";
 
 export default function AddFavCard({ image, topic, name }) {
+
   return (
     <div className={styles.rightColCard}>
       <img src={`./Logos/${image}`} alt={image} className="img-in-box" />
