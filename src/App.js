@@ -1,21 +1,30 @@
 import './App.css';
-import { Favorites } from './pages/favourites/favourites';
-import TopicsContainer from './pages/home/components/topicsContainer/topicsContainer';
-import Welcome from './shared/components/Welcome/welcome';
-import { Footer } from './shared/components/footer/footer';
-import { Header } from './shared/components/header/header';
+import { Footer } from './components/shared/footer/footer.jsx';
+import { Header } from './components/shared/header/header.jsx';
+import Home from './pages/home.jsx';
+import DetailsPage from './pages/DetailsPage.jsx';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Favorites } from './pages/favourites/favourites.jsx';
+import Welcome from './components/shared/Welcome/welcome.jsx';
 
 function App() {
+  const [showFavorites, setShowFavorites] = useState(false);
+  const toggleFavorites = () => {
+    setShowFavorites(!showFavorites);
+  };
+  
   return (
-    <>
-      <Header></Header>
-      <main>
-      <Welcome></Welcome>
-      <TopicsContainer></TopicsContainer>
-      <Favorites></Favorites>
-      </main>
-      <Footer></Footer>
-    </>
+    <Router>
+      <Header toggleFavorites={toggleFavorites} />
+      <Welcome />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="DetailsPage/:id" element={<DetailsPage />} />
+      </Routes>
+      {showFavorites && <Favorites />}
+      <Footer />
+    </Router>
   );
 }
 

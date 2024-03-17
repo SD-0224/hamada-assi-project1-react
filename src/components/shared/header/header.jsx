@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
-export function Header() {
+export function Header({ toggleFavorites }) {
   const [darkMode, setDarkMode] = useState(() => {
     const savedMode = localStorage.getItem("darkMode");
     return savedMode ? JSON.parse(savedMode) : window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -15,16 +15,12 @@ export function Header() {
   // Function to toggle dark mode
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
-    
-    // document.body.classList.toggle("dark-mode", darkMode);
-    // // Toggle light-mode class on body
-    // document.body.classList.toggle("light-mode", !darkMode);
   };
   // Update localStorage when dark mode changes
   useEffect(() => {
     if (darkMode) {
       document.body.classList.add("dark-mode");
-    } else {
+    } else if(!darkMode) {
       document.body.classList.remove("dark-mode");
     }
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
@@ -60,6 +56,7 @@ export function Header() {
                 label={"Favorites"}
                 id="favorites-btn"
                 aria-label="Toggle Favorites"
+                onClick={toggleFavorites}
               />
             </li>
           </ul>

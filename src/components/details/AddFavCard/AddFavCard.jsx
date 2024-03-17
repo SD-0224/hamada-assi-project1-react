@@ -4,7 +4,7 @@ import styles from "./addFavCard.module.css";
 
 export default function AddFavCard({ image, topic, name }) {
   return (
-    <>
+    <div className={styles.rightColCard}>
       <img src="" alt={image} className="img-in-box" />
       <div className={styles.courseInfo}>
         <h3>
@@ -16,11 +16,11 @@ export default function AddFavCard({ image, topic, name }) {
         <div className={styles.addFavourites}>
           <p>Interested about this topic?</p>
           <div className={styles.btnContainer}>
-            <button id="addFavoritesBtn">add to favourites </button>
+            <button>add to favourites</button>
             <p>Unlimited Credits</p>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

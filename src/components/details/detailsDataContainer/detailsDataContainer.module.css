@@ -28,6 +28,20 @@
 .details *:not(ion-icon) {
   color: var(--body-text_dark);
 }
+
+.details h3 {
+  font-size: 1.06rem;
+  color: var(--brand-secondary);
+}
+
+.details h4 {
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+.details p {
+  font-size: 1rem;
+}
+
 .details::before {
   content: "";
   background: #333333;
@@ -60,4 +74,62 @@
 
   display: flex;
   flex-direction: column;
+}
+
+
+/* ________________________________________________ */
+.subTopics h3 {
+  padding: 15px 20px;
+  font-size: 1.7rem;
+}
+
+.subTopics ul li {
+  padding: 15px 20px;
+  border-top: 1px solid var(--lines-color);
+  display: flex;
+  align-items: center;
+}
+.subTopics ul li * {
+  font-size: 1.3rem;
+}
+
+.subTopics ul li ion-icon {
+  font-size: 1.5rem;
+}
+
+.subTopics ul li ion-icon {
+  color: var(--brand-secondary);
+  padding-right: 20px;
+  flex-shrink: 0;
+}
+
+
+/* _______________________________________________________________ */
+/* ____________________    media query   _________________________*/
+@media (max-width: 992px) {
+  .dataContainer .data {
+    width: 85vw;
+  }
+  .btnContainer button {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 880px) {
+  .btnContainer button {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .dataContainer .data {
+    width: 90vw;
+  }
+  .btnContainer button {
+    font-size: 1.2rem;
+  }
+  .dataContainer .data {
+    display: block;
+    padding-bottom: 20px;
+  }
 }

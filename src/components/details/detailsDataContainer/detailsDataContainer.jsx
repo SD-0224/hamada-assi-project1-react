@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
-import styles from "./dataContainer.module.css";
-import TopicDetails from "../topicDetails/topicDetails";
+import styles from "./detailsDataContainer.module.css";
+import TopicDetails from "../mainTopicDetails/mainTopicDetails";
 import AddFavCard from "../AddFavCard/AddFavCard";
+import Subtopics from "../subTopicsSection/subTopicsSection";
+import {useParams} from "react-router-dom";
 
 export default function DataContainer({ id }) {
   const [topic, setTopic] = useState([]);
 
+  const params = useParams();
   useEffect(() => {
-    const apiUrl = `https://tap-web-1.herokuapp.com/topics/details/${id}`;
+    const apiUrl = `https://tap-web-1.herokuapp.com/topics/details/${params.id}`;
     fetch(apiUrl)
       .then((response) => {
         if (!response.ok) {
@@ -28,7 +31,7 @@ export default function DataContainer({ id }) {
   }, []);
 
   return (
-    <section id="dataContainer" className={styles.dataContainer}>
+    <section className={styles.dataContainer}>
       <div className={styles.data}>
         <div className={styles.textData}>
           <div className={styles.details}>
@@ -39,11 +42,11 @@ export default function DataContainer({ id }) {
               description={topic.description}
             />
           </div>
-          <div className={styles.subTopics}></div>
+          <div className={styles.subTopics}>
+            <Subtopics topic={topic.topic} subtopics={topic.subtopics} />
+          </div>
         </div>
-        <div className={styles.rightColCard}>
-            <AddFavCard image={topic.image} topic={topic.topic} name={topic.name} />
-        </div>
+        <AddFavCard image={topic.image} topic={topic.topic} name={topic.name} />
       </div>
     </section>
   );

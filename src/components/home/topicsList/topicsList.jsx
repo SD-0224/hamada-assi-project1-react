@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import styles from "./topics.module.css";
-import { Rating } from "../../../../shared/components/rating/rating";
+import styles from "./topicsList.module.css";
+import { Rating } from "../../shared/rating/rating";
 import { Link } from "react-router-dom";
 
-export function Topics() {
+export function TopicsList() {
   const [topics, setTopics] = useState([]);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export function Topics() {
   return (
     <div id="courses" className={styles.courses}>
       {topics.map((topic) => (
-        <Link to="/DetailsPage" key={topic.id} className={styles.course} id={topic.id}>
+        <Link to={`DetailsPage/${topic.id}`} key={topic.id} className={styles.course} id={topic.id}>
           <img src={`./Logos/${topic.image}`}
             alt="course logo"
             className={"img-in-box"}
@@ -39,18 +39,6 @@ export function Topics() {
             <p className={styles.name}>Author: {topic.name}</p>
           </div>
         </Link>
-        // <a href="./" key={topic.id} className={styles.course} id={topic.id}>
-        //   <img src={`/public/logo512.png/${topic.image}`}
-        //     alt="course logo"
-        //     className={"img-in-box"}
-        //   />
-        //   <div className={styles.courseInfo}>
-        //     <h4 className={styles.category}>{topic.category}</h4>
-        //     <h5 className={styles.topic}>{topic.topic}</h5>
-        //     <Rating rating={topic.rating}></Rating>
-        //     <p className={styles.name}>Author: {topic.name}</p>
-        //   </div>
-        // </a>
       ))}
     </div>
   );

@@ -1,0 +1,26 @@
+.favoriteCard {
+  width: 120px;
+  min-width: 120px;
+  height: 125px;
+  margin: 10px;
+  box-shadow: 0px 0px 5px 0px var(--lines-color);
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.favoriteCard img {
+  height: 50%;
+}
+
+.favoriteCard .favoriteTopic,
+.favoriteCard .rating {
+  font-size: 1rem;
+  padding: 0 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}

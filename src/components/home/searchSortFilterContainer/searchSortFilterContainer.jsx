@@ -1,4 +1,4 @@
-import styles from "./search.module.css";
+import styles from "./searchSortFilter.module.css";
 
 const Search = () => {
   return (

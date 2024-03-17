@@ -7,8 +7,8 @@
   z-index: 100;
   box-shadow: 0px 0px 5px 0px var(--lines-color);
   display: block;
-  opacity: 0;
-  transform: translateY(100%);
+  /* opacity: 0;
+  transform: translateY(100%); */
   transition: opacity 0.3s ease-out, transform 0.3s ease-in-out;
   -webkit-transition: opacity 0.3s ease-out, transform 0.3s ease-in-out;
   -moz-transition: opacity 0.3s ease-out, transform 0.3s ease-in-out;
@@ -27,34 +27,7 @@
   font-weight: 800;
 }
 
-.myFavorites .favoriteContainer {
+.favoriteContainer {
   display: flex;
   overflow: auto;
-}
-
-.myFavorites .favoriteContainer .favoriteCard {
-  width: 120px;
-  min-width: 120px;
-  height: 125px;
-  margin: 10px;
-  box-shadow: 0px 0px 5px 0px var(--lines-color);
-  border-radius: 6px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-}
-
-.myFavorites .favoriteContainer .favoriteCard img {
-  height: 50%;
-}
-
-.favoriteContainer .favoriteCard .favoriteTopic,
-.favoriteContainer .favoriteCard .rating {
-  font-size: 1rem;
-  padding: 0 10px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  max-width: 200px;
 }
