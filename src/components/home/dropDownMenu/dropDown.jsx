@@ -7,8 +7,8 @@ export default function DropDown({ mainClass, label, htmlFor, id, name, selectCl
     <div className={`${styles.dropDown} ${styles[mainClass]}`}>
       <label htmlFor={htmlFor}>{label}</label>
       <select id={id} name={name} className={styles[selectClass]}>
-        {options.map((opt) => {
-            return <option value={opt}>{opt}</option>;
+        {options.map((opt, index) => {
+            return <option value={opt} key={index}>{opt}</option>;
         })}
       </select>
     </div>

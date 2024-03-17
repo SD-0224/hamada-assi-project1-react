@@ -35,7 +35,7 @@ export function Header({ toggleFavorites }) {
     <header>
       <LayoutContainer className={styles.header}>
         <h1>
-          <Link to="/" className={styles.logo}>
+          <Link to="./" className={styles.logo}>
             Web Topics
           </Link>
         </h1>
