@@ -1,18 +1,18 @@
-li {
+.listItem {
   padding: 15px 20px;
   border-top: 1px solid var(--lines-color);
   display: flex;
   align-items: center;
 }
-li * {
+.listItem * {
   font-size: 1.3rem;
 }
 
-li ion-icon {
+.listItem ion-icon {
   font-size: 1.5rem;
 }
 
-li ion-icon {
+.listItem ion-icon {
   color: var(--brand-secondary);
   padding-right: 20px;
   flex-shrink: 0;

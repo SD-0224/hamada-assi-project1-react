@@ -1,9 +1,9 @@
 import React from "react";
-import "./iconicList.module.css";
+import styles from "./iconicList.module.css";
 
 export default function IconicList({ index, iconName, subtopic}) {
   return (
-    <li key={index}>
+    <li key={index} className={styles.listItem}>
       <ion-icon name={iconName}></ion-icon>
       <span>{subtopic}</span>
     </li>
