@@ -5,7 +5,7 @@ import { Rating } from '../../shared/rating/rating'
 
 export default function TopicCard({ topic }) {
   return (
-    <Link to={`DetailsPage/${topic.id}`} key={topic.id} className={styles.course} id={topic.id}>
+    <Link to={`details/${topic.id}`} key={topic.id} className={styles.course} id={topic.id}>
           <img src={`./Logos/${topic.image}`}
             alt="course logo"
             className={"img-in-box"}

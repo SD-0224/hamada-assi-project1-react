@@ -1,32 +1,18 @@
 import './App.css';
-import { Footer } from './components/shared/footer/footer.jsx';
-import { Header } from './components/shared/header/header.jsx';
-import Home from './pages/home.jsx';
+import Home from './pages/home/home.jsx';
 import DetailsPage from './pages/DetailsPage.jsx';
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Favorites } from './pages/favourites/favourites.jsx';
-import Welcome from './components/shared/Welcome/welcome.jsx';
-import ScrollToTop from './components/shared/ScrollToTop.jsx';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AppLayout from './layout/appLayout.jsx';
 
 function App() {
-  const [showFavorites, setShowFavorites] = useState(false);
-  const toggleFavorites = () => {
-    setShowFavorites(!showFavorites);
-  };
-  
   return (
-    <Router basename="/hamada-assi-project1-react">
-      <ScrollToTop />
-      <Header toggleFavorites={toggleFavorites} />
-      <Welcome />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="DetailsPage/:id" element={<DetailsPage />} />
-      </Routes>
-      {showFavorites && <Favorites />}
-      <Footer />
-    </Router>
+    <Routes>
+      <Route path={"/"} element={<AppLayout />}>
+        <Route index element={<Home />} />
+        <Route path="details/:id" element={<DetailsPage />} />
+      </Route>
+    </Routes>
   );
 }
 

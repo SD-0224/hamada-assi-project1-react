@@ -7,11 +7,12 @@ export default function IconicSearch({
   id,
   type,
   placeholder,
+  onChange,
 }) {
   return (
     <>
       <ion-icon name={name} class={styles[classIcon]}></ion-icon>
-      <input id={id} type={type} placeholder={placeholder} />
+      <input id={id} type={type} placeholder={placeholder} onChange={onChange} />
     </>
   );
 }

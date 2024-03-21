@@ -26,7 +26,6 @@ export function Header({ toggleFavorites }) {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
   }, [darkMode]);
   
-
     const darkModeIcon = !darkMode ? "moon-outline" :"sunny-outline";
     const darkModeLabel = !darkMode ? "Dark Mode" : "Light Mode";
     const darkModeAriaLabel = !darkMode ?  "Toggle dark mode" : "Toggle light mode";

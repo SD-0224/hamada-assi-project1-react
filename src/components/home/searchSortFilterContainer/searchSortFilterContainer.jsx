@@ -2,25 +2,38 @@ import DropDown from "../dropDownMenu/dropDown";
 import IconicSearch from "../iconic-search/iconicSearch";
 import styles from "./searchSortFilter.module.css";
 
-const SearchSortFilter = ({ topics }) => {
-  // get categories to setup the filter drop down
-  const allCategory = new Set();
-  topics.forEach(elm => {
-        if (!allCategory.has(elm.category)) {
-            allCategory.add(elm.category);
-        }
-    });
-    
+const sortOptions = [
+  { value: "DEFAULT", name: "DEFAULT" },
+  { value: "TOPIC", name: "TOPIC" },
+  { value: "AUTHOR", name: "AUTHOR" }
+];
+
+
+const SearchSortFilter = ({ filterOptions, updateSearch, updateSort, updateFilter }) => {
+
+  const handleSearchChange = (event) => {
+    updateSearch(event.target.value);
+  };
+
+  const handleSortChange = (event) => {
+    updateSort(event.target.value);
+  };
+
+  const handleFilterChange = (event) => {
+    updateFilter(event.target.value);
+  };
+
   return (
     <div className={styles.searchContainer}>
       <div className={styles.searchField}>
-        <IconicSearch name={"search-outline"} classIcon={'icon'} id={'searchInput'} type={'text'} placeholder={"Search the website..."} />
-        {/* <ion-icon name="search-outline" class={styles.icon}></ion-icon>
-        <input
-          id="searchInput"
-          type="text"
-          placeholder="Search the website..."
-        /> */}
+        <IconicSearch
+          name={"search-outline"}
+          classIcon={"icon"}
+          id={"searchInput"}
+          type={"text"}
+          placeholder={"Search the website..."}
+          onChange={handleSearchChange}
+        />
         <div className={styles.drop}>
           <DropDown
             mainClass={"sortDropDown"}
@@ -29,7 +42,8 @@ const SearchSortFilter = ({ topics }) => {
             id={"sort"}
             name={"sort"}
             selectClass={"sortSelect"}
-            options={["DEFAULT", "TOPIC", "AUTHOR"]}
+            options={sortOptions}
+            onChange={handleSortChange}
           />
           <DropDown
             mainClass={"filterDropDown"}
@@ -38,7 +52,8 @@ const SearchSortFilter = ({ topics }) => {
             id={"filter"}
             name={"filter"}
             selectClass={"filterSelect"}
-            options={["ALL", ...allCategory]}
+            options={filterOptions}
+            onChange={handleFilterChange}
           />
         </div>
       </div>
