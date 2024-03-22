@@ -1,0 +1,32 @@
+.details {
+  position: relative;
+  padding: 30px 0px;
+}
+
+.details *:not(ion-icon) {
+  color: var(--body-text_dark);
+}
+
+.details h3 {
+  font-size: 1.06rem;
+  color: var(--brand-secondary);
+}
+
+.details h4 {
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+.details p {
+  font-size: 1rem;
+}
+
+.details::before {
+  content: "";
+  background: #333333;
+  height: 100%;
+  width: 200vw;
+  position: absolute;
+  left: -100%;
+  top: 0;
+  z-index: -1;
+}

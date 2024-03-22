@@ -1,4 +1,35 @@
+.subTopics {
+  background: var(--bg_default);
+  margin: 20px 0;
+  border: 1px solid var(--lines-color);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
 .subTopics h3 {
   padding: 15px 20px;
   font-size: 1.7rem;
+}
+
+.subTopics ul li {
+  padding: 15px 20px;
+  border-top: 1px solid var(--lines-color);
+  display: flex;
+  align-items: center;
+}
+.subTopics ul li * {
+  font-size: 1.2rem;
+}
+
+.subTopics ul li ion-icon {
+  font-size: 1.5rem;
+}
+
+.subTopics ul li ion-icon {
+  color: var(--brand-secondary);
+  padding-right: 20px;
+  flex-shrink: 0;
 }

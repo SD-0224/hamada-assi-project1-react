@@ -11,11 +11,12 @@ export function Favorites() {
     // Save favorites to local storage whenever it changes
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
+
   return (
     <section className={styles.myFavorites}>
       <h2>My Favorites Topics</h2>
       <div className={styles.favoriteContainer}>
-        {favorites.map((topic) => {
+        {favorites?.map((topic) => {
           return <FavoritesCards id={topic.id} image={topic.image} topic={topic.topic} rating={topic.rating} />
         })}
       </div>

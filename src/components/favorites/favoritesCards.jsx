@@ -5,7 +5,7 @@ import { Rating } from "../shared/rating/rating";
 
 export default function FavoritesCards({id, image, topic, rating}) {
   return (
-    <Link to={`DetailsPage/${id}`} key={id} className={styles.favoriteCard} id={id} >
+    <Link to={`details/${id}`} key={id} className={styles.favoriteCard} id={id} >
       <img
         src={`./Logos/${image}`}
         alt={`${topic} logo`}

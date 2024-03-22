@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./addFavCard.module.css";
 
-export default function AddFavCard({ image, topic, name }) {
+export default function AddFavCard({ image, topic, name, buttonText, onClick }) {
 
   return (
     <div className={styles.rightColCard}>
@@ -17,7 +17,7 @@ export default function AddFavCard({ image, topic, name }) {
         <div className={styles.addFavourites}>
           <p>Interested about this topic?</p>
           <div className={styles.btnContainer}>
-            <button>add to favourites</button>
+            <button dangerouslySetInnerHTML={{ __html: buttonText }} onClick={onClick} ></button>
             <p>Unlimited Credits</p>
           </div>
         </div>

@@ -3,6 +3,8 @@ import styles from "./home.module.css";
 import { LayoutContainer } from "../../components/shared/container/container";
 import TopicsGrid from "../../components/home/topicsGrid/topicsGrid";
 import SearchSortFilter from "../../components/home/searchSortFilterContainer/searchSortFilterContainer";
+import MyLoader from "../../loader/MyLoader";
+import LoaderLayout from "../../loader/loaderLayout";
 
 export default function Home() {
   const [topics, setTopics] = useState([]);
@@ -11,9 +13,10 @@ export default function Home() {
   const [filterCriteria, setFilterCriteria] = useState("ALL");
   const [sortedTopics, setSortedTopics] = useState([]);
   const [filteredTopics, setFilteredTopics] = useState([]);
-
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     const apiUrl = `https://tap-web-1.herokuapp.com/topics/list?phrase=${search}`;
     // Fetch user data based on userId
     const fetchData = async () => {
@@ -40,6 +43,7 @@ export default function Home() {
     };
 
     debounce(fetchData(), 300);
+    // setLoading(false);
 
     // return () => {
     //   setTopics(null); // Reset setTopics to null
@@ -98,7 +102,7 @@ export default function Home() {
     () => getCategories(topics).map((cat) => ({ value: cat, name: cat })),
     [topics]
   );
-  
+
   const updateSearch = (newSearch) => {
     setSearch(newSearch);
   };
@@ -121,7 +125,7 @@ export default function Home() {
             updateSort={updateSort}
             updateFilter={updateFilter}
           />
-          <TopicsGrid topics={filteredTopics} />
+          {loading ? <LoaderLayout /> : <TopicsGrid topics={filteredTopics} />}
         </LayoutContainer>
       </section>
     </>

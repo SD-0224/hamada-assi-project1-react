@@ -52,7 +52,7 @@
 
 .addFavourites p,
 .btn-container p {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
 }
 
 .btnContainer button {
@@ -71,6 +71,7 @@
 }
 
 .btnContainer button ion-icon {
+  color: var(--body-text_dark);
   font-size: 1.6rem;
 }
 
