@@ -14,13 +14,15 @@ export default function Home() {
   const [sortedTopics, setSortedTopics] = useState([]);
   const [filteredTopics, setFilteredTopics] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchResultText, setSearchResultText] = useState("");
 
   useEffect(() => {
-    setLoading(true);
     const apiUrl = `https://tap-web-1.herokuapp.com/topics/list?phrase=${search}`;
     // Fetch user data based on userId
     const fetchData = async () => {
       try {
+        // Set loading to true when fetching data
+        setLoading(true);
         const response = await fetch(apiUrl);
         const courses = await response.json();
         setTopics(courses);
@@ -30,6 +32,9 @@ export default function Home() {
           "Something went wrong. Web topics failed to load.",
           error
         );
+      } finally {
+        // Set loading to false after fetching data
+        setLoading(false);
       }
     };
     const debounce = (func, delay) => {
@@ -43,7 +48,6 @@ export default function Home() {
     };
 
     debounce(fetchData(), 300);
-    // setLoading(false);
 
     // return () => {
     //   setTopics(null); // Reset setTopics to null
@@ -82,6 +86,8 @@ export default function Home() {
           ? filteredArray
           : filteredArray.filter((elm) => elm.category === filterCriteria);
       setFilteredTopics(filtered);
+      const text = filtered.length < 0 ? `No Web Topics Found` : `"${filtered.length}" Web Topics Found`;
+        updateSearchText(text);
     };
 
     filterData(filterCriteria);
@@ -102,6 +108,10 @@ export default function Home() {
     () => getCategories(topics).map((cat) => ({ value: cat, name: cat })),
     [topics]
   );
+
+  const updateSearchText = (text) => {
+    setSearchResultText(text);
+  }
 
   const updateSearch = (newSearch) => {
     setSearch(newSearch);
@@ -124,6 +134,7 @@ export default function Home() {
             updateSearch={updateSearch}
             updateSort={updateSort}
             updateFilter={updateFilter}
+            searchResultText={searchResultText}
           />
           {loading ? <LoaderLayout /> : <TopicsGrid topics={filteredTopics} />}
         </LayoutContainer>

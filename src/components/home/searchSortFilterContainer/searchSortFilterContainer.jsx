@@ -9,7 +9,7 @@ const sortOptions = [
 ];
 
 
-const SearchSortFilter = ({ filterOptions, updateSearch, updateSort, updateFilter }) => {
+const SearchSortFilter = ({ filterOptions, updateSearch, updateSort, updateFilter, searchResultText }) => {
 
   const handleSearchChange = (event) => {
     updateSearch(event.target.value);
@@ -58,7 +58,7 @@ const SearchSortFilter = ({ filterOptions, updateSearch, updateSort, updateFilte
         </div>
       </div>
       <h2 className={styles.searchMessage}>
-        "<span id="numberTopics">24</span>" Web Topics Found
+        {searchResultText}
       </h2>
     </div>
   );
