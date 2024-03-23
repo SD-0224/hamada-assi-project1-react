@@ -86,8 +86,11 @@ export default function Home() {
           ? filteredArray
           : filteredArray.filter((elm) => elm.category === filterCriteria);
       setFilteredTopics(filtered);
-      const text = filtered.length < 0 ? `No Web Topics Found` : `"${filtered.length}" Web Topics Found`;
-        updateSearchText(text);
+      const text =
+        filtered.length < 0
+          ? `No Web Topics Found`
+          : `"${filtered.length}" Web Topics Found`;
+      updateSearchText(text);
     };
 
     filterData(filterCriteria);
@@ -111,7 +114,7 @@ export default function Home() {
 
   const updateSearchText = (text) => {
     setSearchResultText(text);
-  }
+  };
 
   const updateSearch = (newSearch) => {
     setSearch(newSearch);
