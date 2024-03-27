@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import styles from "./details.module.css";
 import TopicDetails from "../../components/details/mainTopicDetails/mainTopicDetails";
@@ -6,61 +6,48 @@ import AddFavCard from "../../components/details/AddFavCard/AddFavCard";
 import Subtopics from "../../components/details/subTopicsSection/subTopicsSection";
 import DetailsLoaderLayout from "../../loader/detailsLoaderLayout";
 import { useFavoritesContext } from "../../contexts/favoritesContext";
+import { useTopicDetailsFetch } from "../../customHooks/useTopicDetailsFetch";
 
 export default function DetailsPage() {
-  // get id from url
-  let { topicId } = useParams();
-  const [topic, setTopic] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // Get id from URL
+  const { topicId } = useParams();
+  const { topic, loading } = useTopicDetailsFetch(topicId);
 
-  useEffect(() => {
-    // Fetch user data based on userId
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(
-          `https://tap-web-1.herokuapp.com/topics/details/${topicId}`
-        );
-        const topic = await response.json();
-        setTopic(topic);
-      } catch (error) {
-        console.error("Something went wrong. Web topics failed to load", error);
-      } finally {
-        // Set loading to false after fetching data
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [topicId]);
-
+  // Get toggleFavorite function from context
   const { toggleFavorite } = useFavoritesContext();
-  return (
-    <section className={styles.dataContainer}>
-      {loading ? (
+
+  if (loading) {
+    return (
+      <section className={styles.dataContainer}>
         <div className={styles.data}>
           <DetailsLoaderLayout />
         </div>
-      ) : (
-        <div className={styles.data}>
-          <div className={styles.textData}>
-            <TopicDetails
-              category={topic.category}
-              topic={topic.topic}
-              rate={topic.rating}
-              description={topic.description}
-            />
-            <Subtopics topic={topic.topic} subtopics={topic.subtopics} />
-          </div>
-          <AddFavCard
-          id={topic.id}
-            image={topic.image}
+      </section>
+    );
+  }
+  return (
+    <section className={styles.dataContainer}>
+      <div className={styles.data}>
+        <div className={styles.textData}>
+          {/* Render topic details */}
+          <TopicDetails
+            category={topic.category}
             topic={topic.topic}
-            name={topic.name}
-            onClick={()=>toggleFavorite(topic)}
+            rate={topic.rating}
+            description={topic.description}
           />
+          {/* Render subtopics */}
+          <Subtopics topic={topic.topic} subtopics={topic.subtopics} />
         </div>
-      )}
+        {/* Render AddFavCard component with appropriate props */}
+        <AddFavCard
+          id={topic.id}
+          image={topic.image}
+          topic={topic.topic}
+          name={topic.name}
+          onClick={() => toggleFavorite(topic)}
+        />
+      </div>
     </section>
   );
 }
