@@ -9,7 +9,7 @@ const sortOptions = [
 ];
 
 
-const SearchSortFilter = ({ filterOptions, updateSearch, updateSort, updateFilter, searchResultText }) => {
+const SearchSortFilter = ({ filterOptions, updateSearch, updateSort, updateFilter, numberOfTopics }) => {
 
   const handleSearchChange = (event) => {
     updateSearch(event.target.value);
@@ -22,6 +22,8 @@ const SearchSortFilter = ({ filterOptions, updateSearch, updateSort, updateFilte
   const handleFilterChange = (event) => {
     updateFilter(event.target.value);
   };
+
+  const text = numberOfTopics < 0 ? `No Web Topics Found` : `"${numberOfTopics}" Web Topics Found`;
 
   return (
     <div className={styles.searchContainer}>
@@ -58,7 +60,7 @@ const SearchSortFilter = ({ filterOptions, updateSearch, updateSort, updateFilte
         </div>
       </div>
       <h2 className={styles.searchMessage}>
-        {searchResultText}
+        {text}
       </h2>
     </div>
   );

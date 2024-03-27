@@ -1,14 +1,14 @@
 import React from 'react'
-import MyLoader from './MyLoader'
+import CardLoader from './cardLoader'
 import styles from "./loader.module.css";
 
 export default function LoaderLayout() {
   return (
     <div className={styles.grid}>
-      <MyLoader />
-      <MyLoader />
-      <MyLoader />
-      <MyLoader />
+      <CardLoader />
+      <CardLoader />
+      <CardLoader />
+      <CardLoader />
     </div>
   )
 }
