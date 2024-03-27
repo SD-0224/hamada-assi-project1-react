@@ -5,17 +5,14 @@ import Welcome from "../components/shared/Welcome/welcome";
 import { Favorites } from "../pages/favourites/favourites";
 import { Footer } from "../components/shared/footer/footer";
 import { Outlet } from "react-router-dom";
+import { useFavoritesContext } from "../contexts/favoritesContext";
 
 export default function AppLayout() {
-  const [showFavorites, setShowFavorites] = useState(false);
-  const toggleFavorites = () => {
-    setShowFavorites(!showFavorites);
-  };
-
+  const { showFavorites, toggleShowFavorites } = useFavoritesContext();
   return (
     <>
       <ScrollToTop />
-      <Header toggleFavorites={toggleFavorites} />
+      <Header toggleFavorites={toggleShowFavorites} />
       <Welcome />
       <main>
         <Outlet />

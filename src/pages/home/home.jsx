@@ -52,6 +52,21 @@ export default function Home() {
     // };
   }, [search]);
 
+  const getCategories = (topics) => {
+    // get categories to setup the filter drop down
+    const allCategory = new Set();
+    topics?.forEach((elm) => {
+      if (!allCategory.has(elm.category)) {
+        allCategory.add(elm.category);
+      }
+    });
+    return ["ALL", ...allCategory];
+  };
+  const filterOptions = useMemo(
+    () => getCategories(topics).map((cat) => ({ value: cat, name: cat })),
+    [topics]
+  );
+
   useEffect(() => {
     const sortData = (sortCriteria) => {
       if (sortCriteria === "DEFAULT") {
@@ -89,46 +104,26 @@ export default function Home() {
     filterData(filterCriteria);
   }, [filterCriteria, sortedTopics]);
 
-  const getCategories = (topics) => {
-    // get categories to setup the filter drop down
-    const allCategory = new Set();
-    topics?.forEach((elm) => {
-      if (!allCategory.has(elm.category)) {
-        allCategory.add(elm.category);
-      }
-    });
-    return ["ALL", ...allCategory];
-  };
-
-  const filterOptions = useMemo(
-    () => getCategories(topics).map((cat) => ({ value: cat, name: cat })),
-    [topics]
-  );
-
-  const updateSearch = (newSearch) => {
-    setSearch(newSearch);
-  };
-
-  const updateSort = (newSort) => {
-    setSortCriteria(newSort);
-  };
-
-  const updateFilter = (newFilter) => {
-    setFilterCriteria(newFilter);
-  };
-
   return (
     <>
       <section className={styles.contentContainer}>
         <LayoutContainer>
           <SearchSortFilter
             filterOptions={filterOptions}
-            updateSearch={updateSearch}
-            updateSort={updateSort}
-            updateFilter={updateFilter}
+            updateSearch={setSearch}
+            updateSort={setSortCriteria}
+            updateFilter={setFilterCriteria}
             numberOfTopics={filteredTopics.length}
           />
-          {loading ? <LoaderLayout /> : <TopicsGrid topics={filteredTopics} />}
+          {useMemo(
+            () =>
+              loading ? (
+                <LoaderLayout />
+              ) : (
+                <TopicsGrid topics={filteredTopics} />
+              ),
+            [filteredTopics]
+          )}
         </LayoutContainer>
       </section>
     </>

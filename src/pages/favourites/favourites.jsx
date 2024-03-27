@@ -1,24 +1,27 @@
-import React, {useState, useEffect } from "react";
+import React from "react";
 import styles from "./favourites.module.css";
 import FavoritesCards from "../../components/favorites/favoritesCards";
+import { useFavoritesContext } from "../../contexts/favoritesContext";
 
 export function Favorites() {
-  // Read from local storage or set default value
-  const initialFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
-  const [favorites, setFavorites] = useState(initialFavorites);
-
-  useEffect(() => {
-    // Save favorites to local storage whenever it changes
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
-
+  const { favorites } = useFavoritesContext();
   return (
     <section className={styles.myFavorites}>
       <h2>My Favorites Topics</h2>
       <div className={styles.favoriteContainer}>
-        {favorites?.map((topic) => {
-          return <FavoritesCards id={topic.id} image={topic.image} topic={topic.topic} rating={topic.rating} />
-        })}
+      {favorites?.length > 0 ? (
+          favorites?.map((topic) => (
+            <FavoritesCards
+              key={topic.id}
+              id={topic.id}
+              image={topic.image}
+              topic={topic.topic}
+              rating={topic.rating}
+            />
+          ))
+        ) : (
+          <h1>No favorites found</h1>
+        )}
       </div>
     </section>
   );

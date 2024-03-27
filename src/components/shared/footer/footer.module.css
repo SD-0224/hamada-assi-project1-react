@@ -1,3 +1,7 @@
+footer {
+  margin-top: 70px;
+}
+
 footer p {
   display: flex;
   justify-content: center;

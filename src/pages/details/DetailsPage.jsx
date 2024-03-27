@@ -4,15 +4,13 @@ import styles from "./details.module.css";
 import TopicDetails from "../../components/details/mainTopicDetails/mainTopicDetails";
 import AddFavCard from "../../components/details/AddFavCard/AddFavCard";
 import Subtopics from "../../components/details/subTopicsSection/subTopicsSection";
-import { BulletList, List, Instagram } from "react-content-loader";
 import DetailsLoaderLayout from "../../loader/detailsLoaderLayout";
+import { useFavoritesContext } from "../../contexts/favoritesContext";
 
 export default function DetailsPage() {
   // get id from url
   let { topicId } = useParams();
   const [topic, setTopic] = useState([]);
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [buttonText, setButtonText] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -36,17 +34,7 @@ export default function DetailsPage() {
     fetchData();
   }, [topicId]);
 
-  useEffect(() => {
-    let btnText = isFavorite
-      ? "Remove from Favorites"
-      : `Add to Favorites <ion-icon name="heart-outline" class="icon add-myFavorites"></ion-icon>`;
-    setButtonText(btnText);
-  }, [isFavorite]);
-
-  const updateButtonText = () => {
-    setIsFavorite((old) => !old);
-  };
-
+  const { toggleFavorite } = useFavoritesContext();
   return (
     <section className={styles.dataContainer}>
       {loading ? (
@@ -65,11 +53,11 @@ export default function DetailsPage() {
             <Subtopics topic={topic.topic} subtopics={topic.subtopics} />
           </div>
           <AddFavCard
+          id={topic.id}
             image={topic.image}
             topic={topic.topic}
             name={topic.name}
-            buttonText={buttonText}
-            onClick={updateButtonText}
+            onClick={()=>toggleFavorite(topic)}
           />
         </div>
       )}
