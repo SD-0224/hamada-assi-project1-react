@@ -32,7 +32,7 @@ export function Header({ toggleFavorites }) {
 
   return (
     <header>
-      <LayoutContainer className={styles.header}>
+      <LayoutContainer className={styles['fixed-header']}>
         <h1>
           <Link to="./" className={styles.logo}>
             Web Topics

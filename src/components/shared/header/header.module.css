@@ -1,12 +1,15 @@
 /* start styling header  */
-.header {
+.fixed-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 70px;
+  width: 100%;
   background: var(--bg_default);
-  position: relative;
-  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
   box-shadow: 0px -2px 10px 0px var(--body-text_light);
 }
 
@@ -30,7 +33,7 @@ header nav ul li:first-child {
 }
 
 @media (max-width: 700px) {
-  .header {
+  .fixed-header {
     height: 66px;
   }
 }

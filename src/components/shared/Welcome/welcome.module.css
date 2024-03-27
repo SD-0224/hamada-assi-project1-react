@@ -2,6 +2,7 @@
   position: relative;
   height: 115px;
   background: var(--bg_default);
+  margin-top: 70px;
 }
 
 .welcomeSection::after {
@@ -58,6 +59,10 @@
 }
 
 @media (max-width: 700px) {
+  .welcomeSection {
+    margin-top: 66px;
+  }
+
   .welcomeSection::after {
     clip-path: polygon(0% 0%, 0% 22%, 120% 0%);
   }
