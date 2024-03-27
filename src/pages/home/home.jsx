@@ -35,17 +35,9 @@ export default function Home() {
         setLoading(false);
       }
     };
-    const debounce = (func, delay) => {
-      let timeoutId;
-      return function (...args) {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => {
-          func.apply(this, args);
-        }, delay);
-      };
-    };
 
-    debounce(fetchData(), 300);
+    const debounce = setTimeout(fetchData, 300);
+    return () => clearTimeout(debounce);
 
     // return () => {
     //   setTopics(null); // Reset setTopics to null
