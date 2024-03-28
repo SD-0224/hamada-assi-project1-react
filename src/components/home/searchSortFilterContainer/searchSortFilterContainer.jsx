@@ -5,25 +5,20 @@ import styles from "./searchSortFilter.module.css";
 const sortOptions = [
   { value: "DEFAULT", name: "DEFAULT" },
   { value: "TOPIC", name: "TOPIC" },
-  { value: "AUTHOR", name: "AUTHOR" }
+  { value: "AUTHOR", name: "AUTHOR" },
 ];
 
-
-const SearchSortFilter = ({ filterOptions, updateSearch, updateSort, updateFilter, numberOfTopics }) => {
-
-  const handleSearchChange = (event) => {
-    updateSearch(event.target.value);
-  };
-
-  const handleSortChange = (event) => {
-    updateSort(event.target.value);
-  };
-
-  const handleFilterChange = (event) => {
-    updateFilter(event.target.value);
-  };
-
-  const text = numberOfTopics < 0 ? `No Web Topics Found` : `"${numberOfTopics}" Web Topics Found`;
+const SearchSortFilter = ({
+  filterOptions,
+  updateSearch,
+  updateSort,
+  updateFilter,
+  numberOfTopics,
+}) => {
+  const text =
+    numberOfTopics < 0
+      ? `No Web Topics Found`
+      : `"${numberOfTopics}" Web Topics Found`;
 
   return (
     <div className={styles.searchContainer}>
@@ -31,37 +26,36 @@ const SearchSortFilter = ({ filterOptions, updateSearch, updateSort, updateFilte
         <IconicSearch
           name={"search-outline"}
           classIcon={"icon"}
-          id={"searchInput"}
           type={"text"}
           placeholder={"Search the website..."}
-          onChange={handleSearchChange}
+          onChange={(event) => {
+            updateSearch(event.target.value);
+          }}
         />
         <div className={styles.drop}>
           <DropDown
-            mainClass={"sortDropDown"}
+            mainClass={"HorizontalBorder"}
             label={"Sort by:"}
-            htmlFor={"sort"}
-            id={"sort"}
             name={"sort"}
-            selectClass={"sortSelect"}
+            selectClass={"DropdownRightBorderStyles"}
             options={sortOptions}
-            onChange={handleSortChange}
+            onChange={(event) => {
+              updateSort(event.target.value);
+            }}
           />
           <DropDown
-            mainClass={"filterDropDown"}
+            mainClass={"HorizontalBorderRadius"}
             label={"Filter by:"}
-            htmlFor={"filter"}
-            id={"filter"}
             name={"filter"}
-            selectClass={"filterSelect"}
+            selectClass={"DropdownLeftBorderStyles"}
             options={filterOptions}
-            onChange={handleFilterChange}
+            onChange={(event) => {
+              updateFilter(event.target.value);
+            }}
           />
         </div>
       </div>
-      <h2 className={styles.searchMessage}>
-        {text}
-      </h2>
+      <h2 className={styles.searchMessage}>{text}</h2>
     </div>
   );
 };

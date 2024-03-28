@@ -18,12 +18,12 @@
   background: transparent;
 }
 
-.sortDropDown {
+.HorizontalBorder {
   border-left: 1px solid var(--lines-color);
   border-right: 1px solid var(--lines-color);
 }
 
-.filterDropDown {
+.HorizontalBorderRadius {
   border-radius: 0 6px 6px 0;
 }
 
@@ -34,7 +34,7 @@
   .dropDown select {
     width: 100%;
   }
-  .sortSelect {
+  .DropdownRightBorderStyles {
     border-left: none;
     border-radius: 0 0 0 6px;
     -webkit-border-radius: 0 0 0 6px;
@@ -43,7 +43,7 @@
     -o-border-radius: 0 0 0 6px;
   }
 
-  .filterSelect {
+  .DropdownLeftBorderStyles {
     border-radius: 0 0 6px 0;
     -webkit-border-radius: 0 0 6px 0;
     -moz-border-radius: 0 0 6px 0;

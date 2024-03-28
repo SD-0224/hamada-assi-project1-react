@@ -41,7 +41,7 @@ export default function Home() {
               ) : (
                 <TopicsGrid topics={filteredTopics} />
               ),
-            [filteredTopics]
+            [filteredTopics, loading]
           )}
         </LayoutContainer>
       </section>
