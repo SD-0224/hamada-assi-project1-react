@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/hamada-assi-project1-react/static/css/main.321d8050.css",
-    "main.js": "/hamada-assi-project1-react/static/js/main.a4e3b7a2.js",
+    "main.js": "/hamada-assi-project1-react/static/js/main.d7ceef25.js",
     "static/js/453.3e302833.chunk.js": "/hamada-assi-project1-react/static/js/453.3e302833.chunk.js",
     "index.html": "/hamada-assi-project1-react/index.html",
     "main.321d8050.css.map": "/hamada-assi-project1-react/static/css/main.321d8050.css.map",
-    "main.a4e3b7a2.js.map": "/hamada-assi-project1-react/static/js/main.a4e3b7a2.js.map",
+    "main.d7ceef25.js.map": "/hamada-assi-project1-react/static/js/main.d7ceef25.js.map",
     "453.3e302833.chunk.js.map": "/hamada-assi-project1-react/static/js/453.3e302833.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.321d8050.css",
-    "static/js/main.a4e3b7a2.js"
+    "static/js/main.d7ceef25.js"
   ]
 }
