@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ScrollToTop from "../components/shared/ScrollToTop";
 import { Header } from "../components/shared/header/header";
 import Welcome from "../components/shared/Welcome/welcome";

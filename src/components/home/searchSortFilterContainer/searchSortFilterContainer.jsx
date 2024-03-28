@@ -2,12 +2,13 @@ import DropDown from "../dropDownMenu/dropDown";
 import IconicSearch from "../iconic-search/iconicSearch";
 import styles from "./searchSortFilter.module.css";
 
+// Options for sorting
 const sortOptions = [
   { value: "DEFAULT", name: "DEFAULT" },
   { value: "TOPIC", name: "TOPIC" },
   { value: "AUTHOR", name: "AUTHOR" },
 ];
-
+// Component for Search, Sort, and Filter functionality
 const SearchSortFilter = ({
   filterOptions,
   updateSearch,
@@ -15,6 +16,7 @@ const SearchSortFilter = ({
   updateFilter,
   numberOfTopics,
 }) => {
+  // // Text to display the number of topics found
   const text =
     numberOfTopics < 0
       ? `No Web Topics Found`
@@ -22,7 +24,9 @@ const SearchSortFilter = ({
 
   return (
     <div className={styles.searchContainer}>
+      {/* Search field */}
       <div className={styles.searchField}>
+        {/* IconicSearch component for search functionality */}
         <IconicSearch
           name={"search-outline"}
           classIcon={"icon"}
@@ -32,7 +36,9 @@ const SearchSortFilter = ({
             updateSearch(event.target.value);
           }}
         />
+        {/* Dropdowns for sorting and filtering */}
         <div className={styles.drop}>
+          {/* DropDown component for sorting */}
           <DropDown
             mainClass={"HorizontalBorder"}
             label={"Sort by:"}
@@ -43,6 +49,7 @@ const SearchSortFilter = ({
               updateSort(event.target.value);
             }}
           />
+          {/* DropDown component for filtering */}
           <DropDown
             mainClass={"HorizontalBorderRadius"}
             label={"Filter by:"}
@@ -55,6 +62,7 @@ const SearchSortFilter = ({
           />
         </div>
       </div>
+      {/* Message displaying the number of topics found */}
       <h2 className={styles.searchMessage}>{text}</h2>
     </div>
   );

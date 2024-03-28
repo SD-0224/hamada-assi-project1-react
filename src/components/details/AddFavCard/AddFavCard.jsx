@@ -5,11 +5,13 @@ import { useFavoritesContext } from "../../../contexts/favoritesContext";
 
 export default function AddFavCard({ id, image, topic, name, onClick }) {
   const { isInFavorites } = useFavoritesContext();
+  // set button text for details page
   const buttonText = isInFavorites(id)
     ? "Remove from Favorites"
     : `Add to Favorites <ion-icon name="heart-outline" class="icon add-myFavorites"></ion-icon>`;
   return (
     <div className={styles.rightColCard}>
+      {/* image and some of data */}
       <img src={`./Logos/${image}`} alt={image} className="img-in-box" />
       <div className={styles.courseInfo}>
         <h3>
@@ -18,6 +20,7 @@ export default function AddFavCard({ id, image, topic, name, onClick }) {
             by <Link to="/">{name}</Link>
           </span>
         </h3>
+        {/* button container */}
         <div className={styles.addFavourites}>
           <p>Interested about this topic?</p>
           <div className={styles.btnContainer}>

@@ -4,12 +4,17 @@ import FavoritesCards from "../../components/favorites/favoritesCards";
 import { useFavoritesContext } from "../../contexts/favoritesContext";
 
 export function Favorites() {
+  // Accessing favorites data from context
   const { favorites } = useFavoritesContext();
   return (
+    // Section for displaying favorite topics
     <section className={styles.myFavorites}>
       <h2>My Favorites Topics</h2>
+      {/* Container for displaying favorite cards */}
       <div className={styles.favoriteContainer}>
-      {favorites?.length > 0 ? (
+        {/* Checking if there are any favorites */}
+        {favorites?.length > 0 ? (
+          // Mapping through favorites to render favorite cards
           favorites?.map((topic) => (
             <FavoritesCards
               key={topic.id}
