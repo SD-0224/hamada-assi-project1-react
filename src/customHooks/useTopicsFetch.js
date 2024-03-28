@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 export function useTopicsFetch(search) {
     const [topics, setTopics] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const apiUrl = `https://tap-web-1.herokuapp.com/topics/list?phrase=${search}`;
@@ -19,6 +20,7 @@ export function useTopicsFetch(search) {
                     "Something went wrong. Web topics failed to load.",
                     error
                 );
+                setError(error);
             } finally {
                 // Set loading to false after fetching data
                 setLoading(false);
@@ -29,5 +31,5 @@ export function useTopicsFetch(search) {
         return () => clearTimeout(debounce);
     }, [search]);
 
-    return { topics, loading };
+    return { topics, loading, error };
 }

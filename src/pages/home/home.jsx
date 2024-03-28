@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styles from "./home.module.css";
 import { LayoutContainer } from "../../components/shared/container/container";
 import TopicsGrid from "../../components/home/topicsGrid/topicsGrid";
@@ -15,7 +15,8 @@ export default function Home() {
   const [filterCriteria, setFilterCriteria] = useState("ALL");
 
   // Custom hook to fetch topics based on search
-  const { topics, loading } = useTopicsFetch(search);
+  const { topics, loading, error } = useTopicsFetch(search);
+  
   // State for sorted and filtered topics
   const [sortedTopics, setSortedTopics] = useState([]);
   const [filteredTopics, setFilteredTopics] = useState([]);
@@ -26,6 +27,10 @@ export default function Home() {
   // Custom hooks to sort and filter topics
   useSortTopics(topics, sortCriteria, setSortedTopics);
   useFilterTopics(sortedTopics, filterCriteria, setFilteredTopics);
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
 
   return (
     <>
@@ -40,16 +45,8 @@ export default function Home() {
             numberOfTopics={filteredTopics.length}
           />
           {/* Conditional rendering based on loading state */}
-          {useMemo(
-            () =>
-              loading ? ( // If loading, display loader layout
-                <LoaderLayout />
-              ) : (
-                // If not loading, display topics grid
-                <TopicsGrid topics={filteredTopics} />
-              ),
-            [filteredTopics, loading]
-          )}
+          {/* If loading, display loader layout, If not loading, display topics grid */}
+          {loading ? <LoaderLayout /> : <TopicsGrid topics={filteredTopics} />}
         </LayoutContainer>
       </section>
     </>
