@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 import styles from "./home.module.css";
 import { LayoutContainer } from "../../components/shared/container/container";
 import TopicsGrid from "../../components/home/topicsGrid/topicsGrid";
@@ -16,7 +16,7 @@ export default function Home() {
 
   // Custom hook to fetch topics based on search
   const { topics, loading, error } = useTopicsFetch(search);
-  
+
   // State for sorted and filtered topics
   const [sortedTopics, setSortedTopics] = useState([]);
   const [filteredTopics, setFilteredTopics] = useState([]);
@@ -29,7 +29,11 @@ export default function Home() {
   useFilterTopics(sortedTopics, filterCriteria, setFilteredTopics);
 
   if (error) {
-    return <p>Error: {error.message}</p>;
+    return (
+      <h1 style={{ color: "red", textAlign: "center", padding: "50px 0" }}>
+        Error: {error.message}
+      </h1>
+    );
   }
 
   return (

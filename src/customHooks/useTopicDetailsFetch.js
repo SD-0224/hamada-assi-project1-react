@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 export function useTopicDetailsFetch(topicId) {
     const [topic, setTopic] = useState({});
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -15,13 +16,13 @@ export function useTopicDetailsFetch(topicId) {
                 setTopic(topicData);
             } catch (error) {
                 console.error("Something went wrong. Topic details failed to load", error);
+                setError(error);
             } finally {
                 setLoading(false);
             }
         };
-
         fetchData();
     }, [topicId]);
 
-    return { topic, loading };
+    return { topic, loading, error };
 }

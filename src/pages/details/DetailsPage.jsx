@@ -11,7 +11,7 @@ import { useTopicDetailsFetch } from "../../customHooks/useTopicDetailsFetch";
 export default function DetailsPage() {
   // Get id from URL
   const { topicId } = useParams();
-  const { topic, loading } = useTopicDetailsFetch(topicId);
+  const { topic, loading, error } = useTopicDetailsFetch(topicId);
 
   // Get toggleFavorite function from context
   const { toggleFavorite } = useFavoritesContext();
@@ -25,6 +25,15 @@ export default function DetailsPage() {
       </section>
     );
   }
+
+  if (error) {
+    return (
+      <h1 style={{ color: "red", textAlign: "center", padding: "50px 0" }}>
+        Error: {error.message}
+      </h1>
+    );
+  }
+
   return (
     <section className={styles.dataContainer}>
       <div className={styles.data}>
