@@ -8,7 +8,7 @@ export default function TopicsGrid({ topics }) {
     <div className={styles.courses}>
       {/* Mapping through topics to render TopicCard component */}
       {topics?.map((topic) => (
-        <TopicCard topic={topic} />
+        <TopicCard key={topic.id} topic={topic} />
       ))}
     </div>
   );

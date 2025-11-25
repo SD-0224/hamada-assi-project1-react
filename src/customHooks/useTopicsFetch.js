@@ -6,7 +6,7 @@ export function useTopicsFetch(search) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const apiUrl = `https://tap-web-1.herokuapp.com/topics/list?phrase=${search}`;
+        const apiUrl = `https://692572e382b59600d723ac24.mockapi.io/webTopics/courses?search=${search}`;
         // Fetch user data based on userId
         const fetchData = async () => {
             try {

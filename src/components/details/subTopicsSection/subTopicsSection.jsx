@@ -15,6 +15,7 @@ export default function Subtopics({ topic, subtopics }) {
         {subtopics.map((elm, index) => (
           // IconicList is a component contains of icon and text
           <IconicList
+            key={index}
             index={index}
             iconName={"checkmark-circle-outline"}
             subtopic={elm}

@@ -10,7 +10,7 @@ export function useTopicDetailsFetch(topicId) {
             try {
                 setLoading(true);
                 const response = await fetch(
-                    `https://tap-web-1.herokuapp.com/topics/details/${topicId}`
+                    `https://692572e382b59600d723ac24.mockapi.io/webTopics/courses/${topicId}`
                 );
                 const topicData = await response.json();
                 setTopic(topicData);
