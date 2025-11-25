@@ -14,7 +14,7 @@ export function useTopicsFetch(search) {
                 setLoading(true);
                 const response = await fetch(apiUrl);
                 const courses = await response.json();
-                setTopics(courses);
+                setTopics(Array.isArray(courses) ? courses : []);
             } catch (error) {
                 console.error(
                     "Something went wrong. Web topics failed to load.",
